@@ -1,0 +1,48 @@
+<template>
+  <style>
+    
+@font-face { font-family: "Kanit"; src: url("assets/fonts/Kanit-600.woff2") format("woff2"); font-weight: 600; unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Kanit"; src: url("assets/fonts/Kanit-600-latin.woff2") format("woff2"); font-weight: 600; unicode-range: U+0000-00FF; }
+@font-face { font-family: "Kanit"; src: url("assets/fonts/Kanit-400.woff2") format("woff2"); font-weight: 400; unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; src: url("assets/fonts/Sarabun-500.woff2") format("woff2"); font-weight: 500; unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Sarabun"; src: url("assets/fonts/Sarabun-500-latin.woff2") format("woff2"); font-weight: 500; unicode-range: U+0000-00FF; }
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #root .abs { position: absolute; }
+    #root .fold { background: repeating-linear-gradient(90deg, #8e1218 0 30px, #6a0c12 30px 60px, #8e1218 60px 90px); box-shadow: inset 0 -30px 60px rgba(0,0,0,.35); }
+  </style>
+  <div id="root" data-composition-id="frame" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="fr-cl" class="abs fold" style="left:0;top:0;width:970px;height:895px;z-index:1"></div>
+    <div id="fr-cr" class="abs fold" style="left:950px;top:0;width:970px;height:895px;z-index:1"></div>
+    <div class="abs fold" style="left:0;top:0;width:170px;height:895px;z-index:2;border-right:6px solid #4a070b"></div>
+    <div class="abs fold" style="left:1750px;top:0;width:170px;height:895px;z-index:2;border-left:6px solid #4a070b"></div>
+    <div class="abs" style="left:0;top:0;width:1920px;height:96px;z-index:3;background:repeating-linear-gradient(90deg, #9c151c 0 30px, #74101a 30px 60px, #9c151c 60px 90px);border-bottom:10px solid #d9a441;"></div>
+    <div class="abs" style="left:0;top:104px;width:1920px;height:22px;z-index:3;background:radial-gradient(circle at 30px 0, #9c151c 28px, transparent 29px) 0 0/60px 22px repeat-x;"></div>
+    <div class="abs" style="left:0;top:859px;width:1920px;height:36px;z-index:3;background:linear-gradient(#6b4226,#3a2414);border-top:4px solid #d9a441;"></div>
+    <div class="abs" style="left:0;top:895px;width:1920px;height:185px;z-index:3;background:linear-gradient(#1a1010,#0a0606);"></div>
+    <div id="fr-end" class="abs" style="left:360px;top:300px;width:1200px;height:360px;z-index:4;opacity:0;text-align:center;color:#f3d27a;">
+      <div style="font:600 128px/1.2 Kanit;text-shadow:0 6px 24px rgba(0,0,0,.6)">จบบริบูรณ์</div>
+      <div style="font:400 40px/1.6 Kanit;color:#f6ead0;margin-top:10px">ยาที่ดีที่สุด อยู่ในหัวใจของหมอที่ปราศจากอคติ</div>
+      <div style="font:400 30px/1.6 Kanit;color:#d9c9a6;margin-top:6px">คัมภีร์ฉันทศาสตร์ แพทย์ศาสตร์สงเคราะห์</div>
+    </div>
+    <div id="fr-title" class="abs" style="left:360px;top:330px;width:1200px;height:260px;z-index:4;opacity:0;text-align:center;color:#f3d27a;">
+      <div style="font:600 104px/1.2 Kanit;text-shadow:0 6px 24px rgba(0,0,0,.6)">คัมภีร์ฉันทศาสตร์</div>
+      <div style="font:400 44px/1.6 Kanit;color:#f6ead0">แพทย์ศาสตร์สงเคราะห์</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#fr-cl", { x: 0, scaleX: 1, transformOrigin: "0% 50%" }, 0);
+      tl.set("#fr-cr", { x: 0, scaleX: 1, transformOrigin: "100% 50%" }, 0);
+      tl.set("#fr-title", { opacity: 1 }, 0);
+      tl.to("#fr-title", { opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }, 1.6);
+      tl.to("#fr-cl", { scaleX: 0.16, duration: 1.8, ease: "power2.inOut" }, 1.7);
+      tl.to("#fr-cr", { scaleX: 0.16, duration: 1.8, ease: "power2.inOut" }, 1.7);
+      tl.to("#fr-cl", { scaleX: 1, duration: 1.8, ease: "power2.inOut" }, 187.5);
+      tl.to("#fr-cr", { scaleX: 1, duration: 1.8, ease: "power2.inOut" }, 187.5);
+      tl.fromTo("#fr-end", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 189.1);
+      tl.set({}, {}, 191);
+      window.__timelines["frame"] = tl;
+    })();
+  </script>
+</template>
