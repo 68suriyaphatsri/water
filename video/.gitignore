@@ -3,3 +3,4 @@ node_modules/
 .hyperframes/cache/
 renders/work-*/
 renders/.*
+renders/*.mp4

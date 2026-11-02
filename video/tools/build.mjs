@@ -882,7 +882,7 @@ const index = `<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
     <title>คัมภีร์ฉันทศาสตร์</title>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="assets/vendor/gsap.min.js"></script>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: #000; }
